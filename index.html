@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utter Settings</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2 class="label">Model</h2>
+        <div class="card">
+          <div class="line">
+            <span class="grow">Parakeet Unified English 0.6B · Q8_0 · 731 MB</span>
+            <span id="model-status" class="state">…</span>
+          </div>
+          <div class="line" id="model-actions">
+            <button class="btn primary with-icon" id="download" hidden>
+              <i data-lucide="download"></i>Download
+            </button>
+            <div class="progress grow" id="progress" hidden>
+              <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Model download"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <span class="dim nowrap" id="progress-text">0 / 731 MB</span>
+              <button class="btn" id="cancel-download">Cancel</button>
+            </div>
+            <button class="btn with-icon" id="delete" hidden>
+              <i data-lucide="trash-2"></i>Delete
+            </button>
+          </div>
+          <p class="error" id="model-error" hidden></p>
+          <div class="line divided">
+            <label class="grow" for="unload">Unload when idle</label>
+            <span class="select">
+              <select id="unload">
+                <option value="never">Never</option>
+                <option value="5">5 min</option>
+                <option value="15">15 min</option>
+                <option value="30">30 min</option>
+                <option value="60">60 min</option>
+              </select>
+              <i data-lucide="chevrons-up-down"></i>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="label">Microphone</h2>
+        <div class="card">
+          <div class="line">
+            <label class="grow" for="microphone">Input device</label>
+            <span class="select wide">
+              <select id="microphone">
+                <option value="">System default</option>
+              </select>
+              <i data-lucide="chevrons-up-down"></i>
+            </span>
+          </div>
+          <p class="error" id="microphone-error" hidden></p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="label">Shortcut</h2>
+        <div class="card">
+          <div class="line">
+            <span class="grow">Start and stop dictation</span>
+            <kbd id="shortcut">…</kbd>
+            <button class="btn" id="change-shortcut">Change</button>
+            <button class="btn" id="reset-shortcut">Reset to default</button>
+          </div>
+          <p class="error" id="shortcut-error" hidden></p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="label">Startup</h2>
+        <div class="card">
+          <div class="line">
+            <label class="grow" for="autostart">Launch at login</label>
+            <input type="checkbox" class="switch" id="autostart" />
+          </div>
+          <p class="error" id="autostart-error" hidden></p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="label">Permissions</h2>
+        <div class="card">
+          <div class="line">
+            <span class="grow">Microphone</span>
+            <span class="state" id="mic-permission">…</span>
+            <button class="btn" id="grant-mic" hidden>Grant</button>
+          </div>
+          <div class="line divided">
+            <span class="grow">Accessibility</span>
+            <span class="state" id="ax-permission">…</span>
+            <button class="btn" id="grant-ax" hidden>Grant</button>
+          </div>
+          <p class="note">Accessibility is needed to paste text into other apps.</p>
+        </div>
+      </section>
+
+      <footer id="version">Utter</footer>
+    </main>
+
+    <dialog id="confirm-delete">
+      <p>Delete the model? You will need to download it again (731 MB) to dictate.</p>
+      <div class="dialog-actions">
+        <button class="btn" id="confirm-delete-cancel">Cancel</button>
+        <button class="btn primary" id="confirm-delete-ok">Delete</button>
+      </div>
+    </dialog>
+  </body>
+</html>

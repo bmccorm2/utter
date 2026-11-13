@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capabilities for the settings and overlay windows",
+  "windows": ["settings", "overlay"],
+  "permissions": [
+    "core:default",
+    "autostart:allow-enable",
+    "autostart:allow-disable",
+    "autostart:allow-is-enabled",
+    "macos-permissions:allow-check-microphone-permission",
+    "macos-permissions:allow-request-microphone-permission",
+    "macos-permissions:allow-check-accessibility-permission",
+    "macos-permissions:allow-request-accessibility-permission"
+  ]
+}

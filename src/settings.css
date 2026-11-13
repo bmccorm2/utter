@@ -1,0 +1,229 @@
+body {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: 16px 20px 12px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+h2.label {
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 12px;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 5px 0;
+}
+.line.divided {
+  border-top: 1px solid var(--hairline);
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Status text. The color follows data-tone. (`.status` is the theme's status dot.) */
+.state {
+  font-size: 12px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.state[data-tone="ok"] {
+  color: var(--ok);
+}
+.state[data-tone="error"] {
+  color: var(--error);
+}
+.state[data-tone="running"] {
+  color: var(--running);
+}
+
+.error {
+  margin: 0;
+  padding: 0 0 8px;
+  font-size: 12px;
+  color: var(--error);
+  user-select: text;
+  -webkit-user-select: text;
+}
+.note {
+  margin: 0;
+  padding: 6px 0 8px;
+  border-top: 1px solid var(--hairline);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.btn {
+  white-space: nowrap;
+}
+.btn.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Download progress */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress-track {
+  flex: 1;
+  height: 6px;
+  overflow: hidden;
+  background: var(--bg-elev);
+  border-radius: 3px;
+}
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* Select with a Lucide chevron instead of the native arrow. */
+.select {
+  position: relative;
+  display: inline-flex;
+}
+.select.wide {
+  width: 260px;
+}
+.select select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 26px 3px 10px;
+  outline: none;
+  text-overflow: ellipsis;
+}
+.select select:hover,
+.select select:focus {
+  border-color: var(--accent);
+}
+.select .icon {
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+kbd {
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+kbd.capturing {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Toggle switch */
+.switch {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 32px;
+  height: 18px;
+  margin: 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background: var(--text-dim);
+  border-radius: 50%;
+  transition: transform 0.15s;
+}
+.switch:hover,
+.switch:focus-visible {
+  border-color: var(--accent);
+}
+.switch:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.switch:checked::before {
+  background: #fff;
+  transform: translateX(14px);
+}
+.switch:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+@media (prefers-reduced-motion: reduce) {
+  .switch,
+  .switch::before {
+    transition: none;
+  }
+}
+
+footer {
+  margin-top: auto;
+  font-size: 11px;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+dialog {
+  width: 340px;
+  padding: 14px 16px 18px;
+}
+dialog p {
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

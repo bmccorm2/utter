@@ -1,0 +1,28 @@
+{
+  "name": "utter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "deploy": "tauri build && (pkill -x utter; sleep 1; rm -rf /Applications/Utter.app && ditto src-tauri/target/release/bundle/macos/Utter.app /Applications/Utter.app && open /Applications/Utter.app)"
+  },
+  "dependencies": {
+    "@fontsource-variable/open-sans": "^5.3.0",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-autostart": "^2.7.0",
+    "@tauri-apps/plugin-clipboard-manager": "^2.5.0",
+    "@tauri-apps/plugin-global-shortcut": "^2.4.1",
+    "@tauri-apps/plugin-store": "^2.5.1",
+    "lucide": "^1.72.0",
+    "tauri-plugin-macos-permissions-api": "^2.3.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "vite": "^8.0.16",
+    "typescript": "~6.0.3"
+  }
+}
